@@ -47,29 +47,12 @@ public:
 
 		for (auto c : N) {
 			int N = dataNumFromRoman[c];
-
-			if (N < ch) {
-				result += ch;
-				ch = N;
-			}
-			else if (N > ch) {
-				if (ch == 0) {
-					ch = N;
-				}
-				else {
-					result += N - ch;
-					ch = 0;
-				}
-			}
-			else if (N == ch) {
-				result += ch + N;
-				ch = 0;
-			}
-
+			if (N < ch) { result += ch; ch = N; }
+			else if (N > ch) { if (ch == 0) { ch = N; }
+				else { result += N - ch; ch = 0; } }
+			else if (N == ch) { result += ch + N; ch = 0; }
 		}
-
 		return result + ch;
-
 	}
 	
 };
